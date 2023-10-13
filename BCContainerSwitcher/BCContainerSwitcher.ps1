@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-This script helps me out with switch BC Containers.
+This script helps me out with switching BC Containers.
 
 .DESCRIPTION
 USAGE
