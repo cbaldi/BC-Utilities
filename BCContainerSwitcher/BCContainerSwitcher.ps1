@@ -13,7 +13,7 @@ COMMANDS
 #>
 param(
     [Parameter(Position = 0, Mandatory = $True)]
-    [ValidateSet("init", "showRunning", "switchTo", "help")]
+    [ValidateSet(<# "init",  #>"showRunning", "switchTo", "help")]
     [string]$Command
 )
 
