@@ -19,11 +19,12 @@ param(
 
 $OUTPUTS_PATH = "C:\Users\eosadmin\PWSH_scripts\BCContainerOutputs"
 
-function CommandInit {
+# WIP
+<# function CommandInit {
     if (!(Test-Path $OUTPUTS_PATH -PathType Container)) {
         New-Item $OUTPUTS_PATH -type Directory
     }
-}
+} #>
 function CommandShowRunning {
     do {
         Write-Host '----------------------'
@@ -66,7 +67,7 @@ function CommandSwitchTo {
 
 
 switch ($Command) {
-    "init" { CommandInit }
+    # "init" { CommandInit } # WIP
     "showRunning" { CommandShowRunning }
     "switchTo" { CommandSwitchTo }
     "help" { Get-Help .\BCContainer.ps1 }
