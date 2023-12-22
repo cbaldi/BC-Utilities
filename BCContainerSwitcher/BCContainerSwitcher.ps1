@@ -33,7 +33,8 @@ function CommandShowRunning {
     } until ([System.Console]::KeyAvailable)
 }
 function CommandSwitchTo {
-    $targetContainer = Read-Host "Target Container"
+    docker ps -a --format '{{.Names}}'
+    $targetContainer = Read-Host "Target Container: "
     $WATCH = New-Object System.Diagnostics.Stopwatch
     $runninContainers = docker ps --format '{{.Names}}'
 
