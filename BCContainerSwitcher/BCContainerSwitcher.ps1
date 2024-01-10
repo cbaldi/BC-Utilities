@@ -34,12 +34,12 @@ function CommandShowRunning {
 }
 function CommandSwitchTo {
     docker ps -a --format '{{.Names}}'
-    $targetContainer = Read-Host "Target Container: "
+    $targetContainer = Read-Host "Target Container"
     $WATCH = New-Object System.Diagnostics.Stopwatch
-    $runninContainers = docker ps --format '{{.Names}}'
+    $runningContainers = docker ps --format '{{.Names}}'
 
     $WATCH.Start()
-    foreach ($container in $runninContainers) {
+    foreach ($container in $runningContainers) {
         # $OutputFilePath = '"$($OUTPUTS_PATH)\Stop-BcContainer_$($using:container)_Output.txt"' # idk how to make this work...
         Start-Job -Name "Stopping_$($container)" -ScriptBlock {
             Start-Sleep(2)
@@ -60,10 +60,10 @@ function CommandSwitchTo {
 
     Write-Host '----------------------'
     Write-Host 'Running containers were:'
-    Write-Host $runninContainers
+    Write-Host $runningContainers
     Write-Host '----------------------'
 
-    Start-BcContainer $targetContainer
+    Start-BcContainer $targetContainer.ToUpper()
 }
 
 
